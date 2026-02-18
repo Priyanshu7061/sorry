@@ -140,16 +140,23 @@
         <span style="left:80%; animation-delay:5s;">💞</span>
     </div>
     <script>
-    function showMessage(){
-        document.getElementById("forgiveMsg").style.display="block";
-
-        // Play music after click
+    window.addEventListener("load", function () {
         var music = document.getElementById("bgMusic");
-        music.play();
-    }
+
+        // Try autoplay
+        var playPromise = music.play();
+
+        if (playPromise !== undefined) {
+            playPromise.catch(function () {
+                // If autoplay blocked, play on first click anywhere
+                document.body.addEventListener("click", function () {
+                    music.play();
+                }, { once: true });
+            });
+        }
+    });
 </script>
-
-
+    
     <script>
         function showMessage(){
             document.getElementById("forgiveMsg").style.display="block";
