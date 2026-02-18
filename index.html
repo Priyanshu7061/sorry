@@ -103,6 +103,11 @@
 </head>
 
 <body>
+    <!-- Background Music -->
+<audio id="bgMusic" autoplay loop>
+    <source src="Justin_Bieber_-_Sorry_Instrumental_(mp3.pm).mp3" type="audio/mpeg">
+</audio>
+
 
     <div class="container">
         <div class="heart">❤️</div>
@@ -134,6 +139,16 @@
         <span style="left:65%; animation-delay:3s;">💗</span>
         <span style="left:80%; animation-delay:5s;">💞</span>
     </div>
+    <script>
+    function showMessage(){
+        document.getElementById("forgiveMsg").style.display="block";
+
+        // Play music after click
+        var music = document.getElementById("bgMusic");
+        music.play();
+    }
+</script>
+
 
     <script>
         function showMessage(){
